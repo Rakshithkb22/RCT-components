@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Contact Component</title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')  
+        
+        const info = {
+            name : 'Steve',
+            lastname : 'Jobs',
+            phone : '0123456789',
+            email : 'steves@gmail.com'
+        }
+        
+        /*
+        create a contact component
+        pass name phone, email as props
+        return 
+        h2 - name
+        p - phone
+        p - email
+        */
+        
+        function Contact(props) {
+            return (
+                <div>
+                    <h1> {props.name} {props.lname}</h1>    
+                    <p> {props.phone} </p>
+                    <p> {props.email} </p>
+                </div>
+            )
+        }
+
+        const ele = (
+            <Contact name = {info.name} lname = {info.lastname} phone = {info.phone} email = {info.email} />
+        )
+
+        ReactDOM.render(ele, rootHandle)
+        </script>
+</body>
+
+</html>

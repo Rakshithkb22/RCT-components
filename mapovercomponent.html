@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Map over the component</title>
+</head>
+
+<body>
+    <div id="root">
+
+    </div>
+
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script crossorigin src="https://unpkg.com/babel-standalone@6.26.0/babel.js"></script>
+
+    <script type="text/babel">
+        const rootHandle = document.getElementById('root')  
+        
+        const users = [
+            {id : 1, firstname : 'Rakshith', email : 'rkb@gmail.com', avatar : 'https://www.w3schools.com/bootstrap/img_avatar3.png'},
+            {id : 2, firstname : 'Ganesh', email : 'gdn@gmail.com', avatar : 'https://www.w3schools.com/bootstrap/img_avatar4.png'},
+            {id : 3, firstname : 'Ajay', email : 'ajayraj@gmail.com', avatar : 'https://www.w3schools.com/bootstrap/img_avatar6.png'},
+            {id : 4, firstname : 'Vijay', email : 'vijayr@gmail.com', avatar : 'https://www.w3schools.com/bootstrap/img_avatar4.png'}
+        ]
+        
+        // Mapping over the component
+
+        function Userinfo(props) {
+            return (
+                <div>
+                    <h1> {props.name} </h1>    
+                    <p> {props.email} </p>
+                    <img src={props.avatar} alt={props.firstname} width="100" height="100" />
+                    <hr />
+                </div>
+            )
+        }
+
+        const ele = (
+                <div>
+                    {users.map((user) => {
+                    return (
+                        <Userinfo key={user.id} name = {user.firstname} email = {user.email} avatar = {user.avatar} />
+                    )
+                })}    
+                </div>
+        )
+
+        ReactDOM.render(ele, rootHandle)
+        </script>
+</body>
+
+</html>
